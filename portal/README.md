@@ -7,7 +7,7 @@ docker run -it \
     --env="NODE_ENV=development" \
     -p 3000:3000 \
     -p 5858:5858 \
-    -v /Users/josephkwan/Documents/projects/js/dailypay/portal:/usr/src/app/ \
+    -v /Users/xxx/Documents/projects/js/dailypay/portal:/usr/src/app/ \
     --entrypoint /bin/bash \
     node:argon
 
