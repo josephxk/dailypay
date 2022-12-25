@@ -1,0 +1,53 @@
+// pagination
+// start: starting page of the component
+// end: ending page of the component
+// next: next page
+// prev: previous page
+// page: current page
+// base: base url
+mixin pagination(start, end, next, prev, page, base)
+    .pagination.pull-right
+        nav(aria-label='Page navigation')
+            ul.pagination
+                if (pagination.page === 1)
+                    li.disabled
+                        a(href='', aria-label='First')
+                            span(aria-hidden='true') First
+                else
+                    li
+                        a(href='#{base}1', aria-label='First')
+                            span(aria-hidden='true') First
+                if (pagination.isFirstPage)
+                    li.disabled
+                        a(href='', aria-label='Previous')
+                            span(aria-hidden='true') &laquo;
+                else
+                    li
+                        a(href='#{base}#{prev}', aria-label='Previous')
+                            span(aria-hidden='true') &laquo;
+
+                - for (var x = start; x <= end; x++)
+                    if (x === page)
+                        li.active
+                            a(href='#{base}#{x}') #{x}
+                                span.sr-only (current)
+                    else
+                        li
+                            a(href='#{base}#{x}') #{x}
+
+                if (pagination.isLastPage)
+                    li.disabled
+                        a(href='', aria-label='Next')
+                            span(aria-hidden='true') &raquo;
+                else
+                    li
+                        a(href='#{base}#{next}', aria-label='Next')
+                            span(aria-hidden='true') &raquo;
+                if (pagination.page === pagination.pageCount)
+                    li.disabled
+                        a(href='', aria-label='Last')
+                            span(aria-hidden='true') Last
+                else
+                    li
+                        a(href='#{base}#{pagination.pageCount}', aria-label='Last')
+                            span(aria-hidden='true') Last

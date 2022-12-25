@@ -1,0 +1,44 @@
+extends dashboard
+
+block dashboard_content
+    section.content
+        include ../partials/flash
+        div.row
+            .col-sm-12
+                h3 Thanks for signing up! Start getting cash every day!
+                p Tell us who you drive for.
+
+                form.form-horizontal(method='POST')
+                    input(type='hidden', name='_csrf', value=_csrf)
+                    .form-group
+                        .checkbox
+                            //label(class='col-sm-4 control-label', for='services')
+                            .col-sm-4
+                            .col-sm-4
+                                input(type='checkbox', name='services', checked=false, value='uber', id='services')
+                                | Uber
+                    .form-group
+                        .checkbox
+                            //label(class='col-sm-4 control-label', for='services')
+                            .col-sm-4
+                            .col-sm-4
+                                input(type='checkbox', name='services', checked=false, value='grab', id='services', disabled=false)
+                                | Grab
+                    .form-group
+                        .checkbox
+                            //label(class='col-sm-4 control-label', for='services')
+                            .col-sm-4
+                            .col-sm-4
+                                input(type='checkbox', name='services', checked=false, value='comfort', id='services', disabled=false)
+                                | Comfort
+                    .form-group
+                        .checkbox
+                            //label(class='col-sm-4 control-label', for='services')
+                            .col-sm-4
+                            .col-sm-4
+                                input(type='checkbox', name='services', checked=false, value='smrt', id='services', disabled=false)
+                                | SMRT
+                    .form-group
+                        .col-sm-offset-4.col-sm-8
+                            button.btn.btn-primary(type='submit')
+                                | Continue

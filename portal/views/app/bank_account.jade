@@ -1,0 +1,36 @@
+extends dashboard
+
+block dashboard_content
+    section.content
+        include ../partials/flash
+        div.row
+            .col-sm-12
+                h3 Thanks! We'll double check your Uber credentials and confirm that they're up to date!
+                p Now tell us where you want your cash every day. We will deposit money directly into your bank account. DailyPay NEVER withdraws money from your bank account. We ONLY deposit.
+
+                h3 Add your bank account information below
+
+                form.form-horizontal(id='bank-account-form', method='POST')
+                    input(type='hidden', name='_csrf', value=_csrf)
+                    .form-group
+                        label(class='col-sm-2 control-label', for='bankName') Bank
+                        .col-sm-8
+                            //input.form-control(type='text', name='bankName', id='bankName', autofocus=true, required)
+                            select.form-control(name='bankName', id='bankName', autofocus=true, required)
+                                option(value='', disabled=true, selected=true, hidden=true) (Select One)
+                                option(value='dbs') DBS
+                                option(value='hsbc') HSBC
+                                option(value='mayb') Maybank
+                                option(value='ocbc') OCBC
+                                option(value='posb') POSB
+                                option(value='scb') SCB
+                                option(value='uob') UOB
+                    .form-group
+                        label(class='col-sm-2 control-label', for='bankAccount') Account Number
+                        .col-sm-8
+                            input.form-control(type='text', name='bankAccount', id='bankAccount', maxlength='12', required)
+                            p Please note that misentering your bank account information will result in a delay in payments so make sure you entered it correctly
+                    .form-group
+                        .col-sm-offset-2.col-sm-8
+                            button.btn.btn-primary(type='submit')
+                                | Add Bank Account

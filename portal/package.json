@@ -1,0 +1,54 @@
+{
+  "name": "dailypay",
+  "version": "0.0.1",
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha --reporter spec --timeout 5000"
+  },
+  "dependencies": {
+    "async": "^2.0.0",
+    "bcrypt-nodejs": "^0.0.3",
+    "bluebird": "^3.4.1",
+    "body-parser": "^1.15.2",
+    "bookshelf": "^0.10.0",
+    "compression": "^1.6.2",
+    "connect-session-knex": "^1.0.23",
+    "dotenv": "^2.0.0",
+    "errorhandler": "^1.4.3",
+    "express": "^4.14.0",
+    "express-flash": "^0.0.2",
+    "express-mysql-session": "^1.1.1",
+    "express-session": "^1.14.0",
+    "express-validator": "^2.20.8",
+    "jade": "^1.11.0",
+    "knex": "^0.11.9",
+    "lodash": "^4.13.1",
+    "lusca": "^1.4.1",
+    "moment": "^2.14.1",
+    "morgan": "^1.7.0",
+    "multer": "^1.1.0",
+    "mysql": "^2.11.1",
+    "node-sass-middleware": "^0.9.8",
+    "nodemailer": "^2.5.0",
+    "nodemailer-mailgun-transport": "^1.2.1",
+    "numeral": "^1.5.3",
+    "passport": "0.3.2",
+    "passport-local": "^1.0.0",
+    "request": "^2.73.0",
+    "shortid": "^2.2.6",
+    "validator": "^5.4.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3",
+    "supertest": "^1.2.0"
+  },
+  "engines": {
+    "node": "4.50"
+  },
+  "license": "UNLICENSED"
+}

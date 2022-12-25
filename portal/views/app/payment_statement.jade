@@ -1,0 +1,68 @@
+extends dashboard
+
+block dashboard_content
+    section.content
+        div.row
+            .col-sm-12
+                //.panel.panel-default
+                .box.box-default
+                    //.panel-heading
+                    .box-header
+                        //h3.panel-title Payment Statement
+                        h3.box-title Payment Statement
+                    //.panel-body
+                    .box-body.table-responsive
+                        if (payment.paid)
+                            span.label.label-success Paid
+                            |  Period: #{moment(payment.job_period).subtract(6.5, 'hours').format('ddd DD/MM/YYYY h:mma')}
+                            | to
+                            | #{moment(payment.job_period).add(17.5, 'hours').format('ddd DD/MM/YYYY h:mma')}
+                        else
+                            span.label.label-default Not Paid
+                            |  Period: #{moment(payment.job_period).subtract(6.5, 'hours').format('ddd DD/MM/YYYY h:mma')}
+                            | to
+                            | #{moment(payment.job_period).add(17.5, 'hours').format('ddd DD/MM/YYYY h:mma')}
+                        br
+                        br
+
+                        table.table.table-bordered
+                            tr
+                                td Payment Received
+                                td=numeral(payment.payment_amount).format('$0,0.00')
+                            tr
+                                td(colspan=2, bgcolor='lightgray').text-center Pay Period Ending: #{moment(payment.job_period).endOf('week').add(1, 'days').format('ddd MMM D')} 5:30pm GMT+8
+                            tr
+                                td
+                                    b Earnings:
+                                    br
+                                    span Net Fare for #{moment(payment.job_period).subtract(6.5, 'hours').format('ddd h:mma')}
+                                    |  to
+                                    | #{moment(payment.job_period).add(17.5, 'hours').format('ddd h:mma')}
+                                td
+                                    span=numeral(payment.nett_amount).format('$0,0.00')
+                            tr
+                                td
+                                    b Reserve Amount:
+                                    br
+                                    span 10% of Earnings. Received on #{moment(payment.reserve_date).format('ddd DD MMM')}
+                                td
+                                    span (#{numeral(payment.reserve_amount).format('$0,0.00')})
+                            tr
+                                td(colspan=2, bgcolor='lightgray').text-center Miscellaneous
+                            if (payment.rollover_amount > 0)
+                                tr
+                                    td
+                                        b Rollover Amount:
+                                        br
+                                        span Previous Earnings less Reserves
+                                    td
+                                        span #{numeral(payment.rollover_amount).format('$0,0.00')}
+                            tr
+                                td
+                                    b Convenience Fee:
+                                    br
+                                    span $0.99 when Fare < $150
+                                    br
+                                    span $1.49 when Fare > $150
+                                td
+                                    span (#{numeral(payment.fee_amount).format('$0,0.00')})

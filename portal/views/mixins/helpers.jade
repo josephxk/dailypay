@@ -1,0 +1,7 @@
+mixin printService(service)
+    if (service === 'uber')
+        span Uber
+    else if (service === 'grab')
+        span Grab
+    else
+        span #{service}

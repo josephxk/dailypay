@@ -1,0 +1,35 @@
+extends dashboard
+
+include ../mixins/pagination
+
+block dashboard_content
+    section.content
+        div.row
+            .col-sm-9
+                //.panel.panel-default
+                .box.box-default
+                    //.panel-heading
+                    .box-header
+                        //h3.panel-title Daily Payments
+                        h3.box-title Daily Payments
+                        //.panel-body
+                    .box-body.table-responsive.no-padding
+                        table.table.table-hover
+                            thead
+                                tr
+                                    th Payment Sent
+                                    th Amount
+                                    th Status
+                            tbody
+                                each payment in payments
+                                    tr
+                                        td
+                                            a(href='payments/'+payment.uuid)
+                                                span #{moment(payment.job_period).format('ddd, DD MMM')}
+                                        td=numeral(payment.payment_amount).format('$0,0.00')
+                                        if (payment.paid)
+                                            td
+                                                span.label.label-success Paid
+                                        else
+                                            td
+                    +pagination(pagination.startPage, pagination.endPage, pagination.nextPage, pagination.prevPage, pagination.page, pagination.base)

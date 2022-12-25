@@ -1,0 +1,77 @@
+extends dashboard
+
+include ../mixins/pagination
+
+block dashboard_content
+    section.content
+        div.row
+            .col-sm-9
+                //.panel.panel-default
+                .box.box-default
+                    //.panel-heading
+                    .box-header
+                        h3.box-title Recent Payments
+                    //h3.panel-title Recent Payments
+                        //.panel-body
+                    .box-body.table-responsive.no-padding
+                        table.table.table-hover
+                            thead
+                                tr
+                                    th Payment Sent
+                                    th Amount
+                                    th Status
+                            tbody
+                                each payment in payments
+                                    tr
+                                        td
+                                            a(href='payments/' + payment.uuid)
+                                                span #{moment(payment.job_period).format('ddd, DD MMM')}
+                                        td=numeral(payment.payment_amount).format('$0,0.00')
+                                        if (payment.paid)
+                                            td
+                                                span.label.label-success Paid
+                                        else
+                                            td
+                            tfoot
+                                tr
+                                    td(colspan='3')
+                                        .pull-right
+                                            a(href='/app/payments') See All Payments
+
+            .col-sm-3
+                //.panel.panel-default
+                .box.box-default
+                    //.panel-heading
+                    .box-header
+                        //h3.panel-title My DailyPay Account
+                        h3.box-title My DailyPay Account
+                    //.panel-body
+                    .box-body
+                        span Bank: Maybank
+                        br
+                        span Account #: 04123456789
+
+                //.panel.panel-default
+                .box.box-default
+                    //.panel-heading
+                    .box-header
+                        //h3.panel-title Reserve Amount
+                        h3.box-title Weekly Reserve Amount
+                    .box-body.table-responsive.no-padding
+                        table.table.table-hover
+                            thead
+                                tr
+                                    th Date
+                                    th Amount
+                                    th Status
+                            tbody
+                                each reserve in reserves
+                                    tr
+                                        td=moment(reserve.reserve_date).format('ddd, DD MMM')
+                                        td=numeral(reserve.reserve_amount).format('$0,0.00')
+                                        if (reserve.paid)
+                                            td
+                                                span.label.label-success Paid
+                                        else
+                                            td
+                                                span.label.label-default Unpaid

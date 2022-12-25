@@ -1,0 +1,25 @@
+extends dashboard
+
+block dashboard_content
+    section.content
+        include ../partials/flash
+        div.row
+            .col-sm-12
+                h3 Verify DailyPay bank link and accept the terms and conditions
+                p Please read through the terms and conditions carefully before you continue
+
+                form.form-horizontal(id='verify-bank-link', method='POST')
+                    input(type='hidden', name='_csrf', value=_csrf)
+                    .form-group
+                        .checkbox
+                            //label(class='col-sm-2 control-label', for='verified')
+                            .col-sm-2
+                            .col-sm-8
+                                input(type='checkbox', name='verified', checked=false, id='verified')
+                                p I have updated my Uber Vault with my DailyPay Account Number. I understand that if Uber's system is down for maintenance, this may delay DailyPay's ability to send payment.
+                                p I am subject to DailyPay's Cancellation Policy if I intentionally try to misrepresent, fraud, or provide misleading or false statements to DailyPay.
+
+                    .form-group
+                        .col-sm-offset-2.col-sm-8
+                            button.btn.btn-primary(type='submit')
+                                | Verify DailyPay Bank Link

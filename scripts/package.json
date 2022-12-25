@@ -1,0 +1,18 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "dependencies": {
+    "async": "^2.0.1",
+    "cheerio": "^0.20.0",
+    "fs": "0.0.2",
+    "htmltidy": "0.0.6",
+    "idgen": "^2.0.2",
+    "knex": "^0.12.2",
+    "libxmljs": "^0.18.0",
+    "lodash": "^4.16.2",
+    "moment": "^2.14.1",
+    "mysql": "^2.11.1",
+    "request": "^2.74.0",
+    "sanitize-html": "^1.13.0"
+  }
+}

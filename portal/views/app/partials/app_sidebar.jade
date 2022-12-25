@@ -1,0 +1,46 @@
+// Left side column. contains the logo and sidebar
+aside.main-sidebar
+    // sidebar: style can be found in sidebar.less
+    section.sidebar
+        //// sidebar menu: : style can be found in sidebar.less
+        if user.get('regStatus') < 7
+            ul.sidebar-menu
+                li
+                    a(href='#')
+                        i.fa.fa-check
+                        span Sign Up for DailyPay
+                li(class=(title == 'Welcome to DailyPay' || title == 'Connect Your Accounts') ? 'active' : undefined)
+                    a(href='/app/welcome/set_services')
+                        i.fa.fa-sitemap
+                        span Link Accounts
+                li(class=(title == 'Add Bank Account') ? 'active' : undefined)
+                    a(href='/app/bank_account/new')
+                        i.fa.fa-bank
+                        span Add Bank Account
+                li(class=(title == 'Verify Bank Link') ? 'active' : undefined)
+                    a(href='/app/bank_link/verify')
+                        i.fa.fa-arrows-h
+                        span DailyPay Bank Link
+        else
+            ul.sidebar-menu
+                li.header MAIN NAVIGATION
+                li(class=(title == 'Dashboard') ? 'active' : undefined)
+                    a(href='/app/dashboard')
+                        i.fa.fa-dashboard
+                        span Dashboard
+                li(class=(title == 'Payments') ? 'active' : undefined)
+                    a(href='/app/payments')
+                        i.fa.fa-money
+                        span Payments
+                li(class=(title == 'Statements') ? 'active' : undefined)
+                    a(href='/app/statements')
+                        i.fa.fa-list
+                        span Statements
+                li(class=(title == 'DailyPay Hub') ? 'active' : undefined)
+                    a(href='/app/provider_accounts')
+                        i.fa.fa-sitemap
+                        span Link Accounts
+                li(class=(title == 'Account Information') ? 'active' : undefined)
+                    a(href='/app/settings')
+                        i.fa.fa-pencil-square-o
+                        span Account Settings

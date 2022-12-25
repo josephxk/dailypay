@@ -1,0 +1,33 @@
+extends dashboard
+
+include ../mixins/helpers
+
+block dashboard_content
+    section.content
+        div.row
+            .col-sm-12
+                .panel.panel-default
+                    .panel-heading
+                        h3.panel-title My Services
+                    //.panel-body
+                    table.table
+                        thead
+                            tr
+                                th Service
+                                th Status
+                                th Advance Rate
+                                th Minimum Advance
+                        tbody
+                            each service in services
+                                tr
+                                    td
+                                        +printService(service.service)
+                                    if (service.valid)
+                                        td
+                                            span.label.label-success Active
+                                    else
+                                        td
+                                            span.label.label-danger Not Active
+                                    td=numeral('0.9').format('0%')
+                                    td $25.00
+                                        a(href='#')  (change)

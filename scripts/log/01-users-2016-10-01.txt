@@ -1,0 +1,5 @@
+2016-10-01 13:27:18:277 - ReferenceError: currentIndex is not defined
+FAIL,2016-10-01 13:28:00:615,Error: insert into `w_users` (`counter`, `email`, `id`, `job_period`, `processed`, `service`, `user_id`) values (0, 'josephkwan@gmail.com', NULL, '2016-10-01', 0, 'uber', 1) - ER_DUP_ENTRY: Duplicate entry '1-2016-10-01-uber' for key 'unique'
+FAIL,2016-10-01 13:28:00:616,Error: insert into `w_users` (`counter`, `email`, `id`, `job_period`, `processed`, `service`, `user_id`) values (0, 'johndoe@gmail.com', NULL, '2016-10-01', 0, 'uber', 12) - ER_DUP_ENTRY: Duplicate entry '12-2016-10-01-uber' for key 'unique'
+FAIL,2016-10-01 13:28:00:616,Error: insert into `w_users` (`counter`, `email`, `id`, `job_period`, `processed`, `service`, `user_id`) values (0, 'adam@gmail.com', NULL, '2016-10-01', 0, 'uber', 13) - ER_DUP_ENTRY: Duplicate entry '13-2016-10-01-uber' for key 'unique'
+FAIL,2016-10-01 13:28:00:618,Error: insert into `w_users` (`counter`, `email`, `id`, `job_period`, `processed`, `service`, `user_id`) values (0, 'ben@123test.com', NULL, '2016-10-01', 0, 'uber', 14) - ER_DUP_ENTRY: Duplicate entry '14-2016-10-01-uber' for key 'unique'
